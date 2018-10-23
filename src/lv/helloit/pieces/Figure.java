@@ -1,6 +1,6 @@
 package lv.helloit.pieces;
 
-public class Figure {
+public abstract class Figure  {
     protected boolean isWhite;
 
     public Figure(boolean isWhite) {
@@ -8,7 +8,5 @@ public class Figure {
     }
 
     @Override
-    public String toString() {
-        throw new AbstractMethodError();
-    }
+    public abstract String toString();
 }

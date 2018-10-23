@@ -1,16 +1,20 @@
 package lv.helloit;
 
-import lv.helloit.pieces.Figure;
 import lv.helloit.pieces.Pawn;
 
 public class Chess {
-    private Figure[][] board = new Figure[8][8];
+    private Field[][] board;
 
-    public static void main(String[] args) {
-        Chess c = new Chess();
-        c.fillPawns(true);
-        c.fillPawns(false);
-        c.print();
+    public Chess() {
+        this.board = new Field[8][8];
+
+        this.initBoard();
+        this.fillPawns(true);
+        this.fillPawns(false);
+    }
+
+    public void start() {
+        this.print();
     }
 
     private void print() {
@@ -22,11 +26,18 @@ public class Chess {
         }
     }
 
+    private void initBoard() {
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                board[i][j] = new Field();
+            }
+        }
+    }
     private void fillPawns(boolean isWhite) {
         int rowIndex = isWhite ? 1 : 6;
 
         for (int i = 0; i < 8; ++i) {
-            board[rowIndex][i] = new Pawn(isWhite);
+            board[rowIndex][i] = new Field(new Pawn(isWhite));
         }
     }
 }
