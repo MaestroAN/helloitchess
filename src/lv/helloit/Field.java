@@ -20,6 +20,10 @@ public class Field {
         return figure == null;
     }
 
+    public void clear() {
+        this.figure = null;
+    }
+
     @Override
     public String toString() {
         return this.figure == null ? "\u2014" : figure.toString();
